@@ -11,10 +11,10 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - type: volume
-        source: acme-00
+        source: acme_00
         target: /acme
       - type: volume
-        source: logs-00
+        source: logs_00
         target: /logs
     environment:       
       - CF_API_EMAIL=${CF_API_EMAIL}    
@@ -257,76 +257,76 @@ services:
       - traefik.http.routers.transmission.tls.certresolver=letsencrypt  
     restart: unless-stopped
 volumes:
-  acme-00:
+  acme_00:
     driver_opts:
       type: 'nfs'
       o: 'addr=${NFS},nolock,soft,rw'
-      device: ':${NFS_SHARE-01}/appdata/traefik/acme'
-  logs-00:
+      device: ':${NFS_SHARE_01}/appdata/traefik/acme'
+  logs_00:
     driver_opts:
       type: 'nfs'
       o: 'addr=${NFS},nolock,soft,rw'
-      device: ':${NFS_SHARE-01}/appdata/traefik/logs'
+      device: ':${NFS_SHARE_01}/appdata/traefik/logs'
   heimdall:    
     driver_opts:
       type: 'nfs'
       o: 'addr=${NFS},nolock,soft,rw'
-      device: ':${NFS_SHARE-01}/appdata/heimdall/config'
+      device: ':${NFS_SHARE_01}/appdata/heimdall/config'
   downloads:    
     driver_opts:
       type: 'nfs'
       o: 'addr=${NFS},nolock,soft,rw'
-      device: ':${NFS_SHARE-01}/downloads'
+      device: ':${NFS_SHARE_01}/downloads'
   downloads-bt:    
     driver_opts:
       type: 'nfs'
       o: 'addr=${NFS},nolock,soft,rw'
-      device: ':${NFS_SHARE-01}/downloads/bt'
+      device: ':${NFS_SHARE_01}/downloads/bt'
   downloads-bt-watch:    
     driver_opts:
       type: 'nfs'
       o: 'addr=${NFS},nolock,soft,rw'
-      device: ':${NFS_SHARE-01}/downloads/bt/watch'     
+      device: ':${NFS_SHARE_01}/downloads/bt/watch'     
   sonarr:    
     driver_opts:
       type: 'nfs'
       o: 'addr=${NFS},nolock,soft,rw'
-      device: ':${NFS_SHARE-01}/appdata/sonarr/config'           
+      device: ':${NFS_SHARE_01}/appdata/sonarr/config'           
   radarr:    
     driver_opts:
       type: 'nfs'
       o: 'addr=${NFS},nolock,soft,rw'
-      device: ':${NFS_SHARE-01}/appdata/radarr/config'
+      device: ':${NFS_SHARE_01}/appdata/radarr/config'
   readarr:    
     driver_opts:
       type: 'nfs'
       o: 'addr=${NFS},nolock,soft,rw'
-      device: ':${NFS_SHARE-01}/appdata/readarr/config'
+      device: ':${NFS_SHARE_01}/appdata/readarr/config'
   lidarr:    
     driver_opts:
       type: 'nfs'
       o: 'addr=${NFS},nolock,soft,rw'
-      device: ':${NFS_SHARE-01}/appdata/lidarr/config'
+      device: ':${NFS_SHARE_01}/appdata/lidarr/config'
   prowlarr:    
     driver_opts:
       type: 'nfs'
       o: 'addr=${NFS},nolock,soft,rw'
-      device: ':${NFS_SHARE-01}/appdata/prowlarr/config'    
+      device: ':${NFS_SHARE_01}/appdata/prowlarr/config'    
   nzbget:    
     driver_opts:
       type: 'nfs'
       o: 'addr=${NFS},nolock,soft,rw'
-      device: ':${NFS_SHARE-01}/appdata/nzbget/config'
+      device: ':${NFS_SHARE_01}/appdata/nzbget/config'
   transmission:    
     driver_opts:
       type: 'nfs'
       o: 'addr=${NFS},nolock,soft,rw'
-      device: ':${NFS_SHARE-01}/appdata/transmission/config'    
+      device: ':${NFS_SHARE_01}/appdata/transmission/config'    
   overseerr:    
     driver_opts:
       type: 'nfs'
       o: 'addr=${NFS},nolock,soft,rw'
-      device: ':${NFS_SHARE-01}/appdata/overseerr/config' 
+      device: ':${NFS_SHARE_01}/appdata/overseerr/config' 
   tv:    
     driver_opts:
       type: 'nfs'
